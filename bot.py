@@ -5,7 +5,7 @@ import asyncio
 from configparser import RawConfigParser
 
 
-description = '''Bot for Mambo Discord'''
+description = '''Bot for token prices'''
 
 intents = discord.Intents.default()
 
