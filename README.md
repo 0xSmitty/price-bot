@@ -1,4 +1,8 @@
 # Discord Token Price Bot
-Just update the ini!
 
-Make sure the bot has nickname change permission, only thing necessary.
+## Installation
+- `pip install -r requirements.txt`
+- create discord bot [here](https://discord.com/developers/applications)
+- bot should have nickname change permission
+- add config.ini with bot token and token info
+- run `python bot.py`
