@@ -43,6 +43,7 @@ async def update_token_price():
                         for pair in data['pairs']:
                             if pair.get('chainId') == chain_id:
                                 market_cap = pair.get('marketCap')
+                                ticker = pair.get('baseToken', {}).get('symbol')
 
                                 if market_cap:
                                     market_cap_float = float(market_cap)
@@ -50,9 +51,10 @@ async def update_token_price():
 
                                     # Update the bot's nickname in all guilds
                                     for guild in bot.guilds:
+                                        new_nick = f"{formatted_cap} - {ticker}"
                                         try:
-                                            await guild.me.edit(nick=formatted_cap)
-                                            print(f"Updated nickname to {formatted_cap} in {guild.name}")
+                                            await guild.me.edit(nick=new_nick)
+                                            print(f"Updated nickname to {new_nick} in {guild.name}")
                                         except discord.Forbidden:
                                             print(f"Missing permissions to change nickname in {guild.name}")
                                     break
