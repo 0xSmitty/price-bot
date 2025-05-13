@@ -47,11 +47,11 @@ async def update_token_price():
 
                                 if market_cap:
                                     market_cap_float = float(market_cap)
-                                    formatted_cap = f"${market_cap_float / 1_000_000:.1f} M"
+                                    formatted_cap = f"${market_cap_float / 1_000_000:.1f}M"
 
                                     # Update the bot's nickname in all guilds
                                     for guild in bot.guilds:
-                                        new_nick = f"{formatted_cap} - {ticker}"
+                                        new_nick = f"{formatted_cap} ({ticker})"
                                         try:
                                             await guild.me.edit(nick=new_nick)
                                             print(f"Updated nickname to {new_nick} in {guild.name}")
